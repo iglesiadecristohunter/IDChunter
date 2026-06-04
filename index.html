@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iglesia de Cristo — Hunter, Arequipa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0a0a0a;--white:#f8f7f4;--g1:#1a1a1a;--g2:#2e2e2e;--g3:#5a5a5a;--g4:#8a8a8a;--g5:#c8c8c8;--g6:#e8e7e4;--accent:#b8a98a;--adark:#7a6a4a;--fd:'Cormorant Garamond',serif;--fb:'DM Sans',sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--white);color:var(--black);font-family:var(--fb);font-weight:300;line-height:1.7;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(248,247,244,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--g6);}
+.nav-logo{font-family:var(--fd);font-size:1rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--black);text-decoration:none;}
+.nav-logo span{color:var(--adark);}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g3);text-decoration:none;transition:color .2s;cursor:pointer;}
+.nav-links a:hover{color:var(--black);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.2rem;}
+.nav-toggle span{width:24px;height:1.5px;background:var(--black);display:block;}
+.admin-btn{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;padding:.4rem .9rem;border:1px solid var(--adark);color:var(--adark);background:transparent;cursor:pointer;font-family:var(--fb);transition:all .2s;}
+.admin-btn:hover{background:var(--adark);color:var(--white);}
+#inicio{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:72px;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem;}
+.hero-tag{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--adark);margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .2s forwards;}
+.hero-title{font-family:var(--fd);font-size:clamp(2.8rem,5vw,5.2rem);font-weight:300;line-height:1.1;margin-bottom:.6rem;opacity:0;animation:fadeUp .8s .4s forwards;}
+.hero-title em{font-style:italic;color:var(--adark);}
+.hero-location{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .5s forwards;}
+.hero-subtitle{font-size:1rem;color:var(--g3);max-width:38ch;margin-bottom:3rem;opacity:0;animation:fadeUp .8s .6s forwards;}
+.hero-verse{border-left:2px solid var(--accent);padding-left:1.2rem;font-family:var(--fd);font-style:italic;font-size:1.05rem;color:var(--g3);opacity:0;animation:fadeUp .8s .8s forwards;}
+.hero-verse cite{display:block;font-style:normal;font-family:var(--fb);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--adark);margin-top:.5rem;}
+.hero-right{background:var(--black);position:relative;overflow:hidden;opacity:0;animation:fadeIn 1.2s .3s forwards;}
+.hero-cross{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.hero-cross svg{width:180px;height:180px;opacity:.1;}
+.hero-grid-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(184,169,138,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(184,169,138,.06) 1px,transparent 1px);background-size:60px 60px;}
+.hero-right-text{position:absolute;bottom:3rem;left:3rem;right:3rem;}
+.hero-right-label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;}
+.hero-right-quote{font-family:var(--fd);font-size:1.5rem;font-weight:300;color:var(--white);line-height:1.35;}
+.verse-ref{display:block;font-size:.85rem;color:var(--accent);margin-top:.5rem;font-family:var(--fb);font-style:normal;}
+section{padding:7rem 4rem;}
+.section-label{font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--adark);margin-bottom:.8rem;}
+.section-title{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:3rem;}
+.section-title em{font-style:italic;}
+#horarios{background:var(--black);color:var(--white);}
+#horarios .section-title{color:var(--white);}
+#horarios .section-label{color:var(--accent);}
+.horarios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5px;background:var(--g2);border:1.5px solid var(--g2);}
+.horario-card{background:var(--g1);padding:2.5rem 2rem;transition:background .3s;}
+.horario-card:hover{background:var(--g2);}
+.horario-day{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;}
+.horario-name{font-family:var(--fd);font-size:1.5rem;font-weight:300;color:var(--white);margin-bottom:.3rem;}
+.horario-time{font-size:1.7rem;font-weight:500;letter-spacing:-.02em;color:var(--white);margin-bottom:.8rem;}
+.horario-desc{font-size:.85rem;color:var(--g4);line-height:1.6;}
+.horario-badge{display:inline-block;padding:.15rem .6rem;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--g3);color:var(--g4);margin-bottom:.6rem;}
+#programa{background:var(--white);}
+.prog-titulo{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.15;margin-bottom:3rem;}
+.prog-titulo em{font-style:italic;}
+.programa-filter{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:3rem;}
+.filter-btn{padding:.4rem 1rem;font-family:var(--fb);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--g5);background:transparent;color:var(--g3);cursor:pointer;transition:all .2s;}
+.filter-btn:hover,.filter-btn.active{background:var(--black);border-color:var(--black);color:var(--white);}
+.programa-table{width:100%;border-collapse:collapse;}
+.programa-table thead tr{border-bottom:2px solid var(--black);}
+.programa-table th{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g4);padding:.8rem 1rem;text-align:left;font-weight:400;}
+.programa-table td{padding:1.1rem 1rem;font-size:.9rem;border-bottom:1px solid var(--g6);color:var(--g2);vertical-align:middle;}
+.programa-table tr:hover td{background:var(--g6);}
+.evento-tipo{display:inline-block;padding:.2rem .7rem;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid;}
+.tipo-culto{border-color:var(--black);color:var(--black);}
+.tipo-estudio{border-color:var(--adark);color:var(--adark);}
+.tipo-especial{border-color:#2a5c8a;color:#2a5c8a;}
+.tipo-comunion{border-color:#7a3a3a;color:#7a3a3a;}
+.programa-row.hidden{display:none;}
+#estudios{background:var(--black);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:60vh;}
+#estudios .section-label{color:var(--accent);}
+.estudios-hero-title{font-family:var(--fd);font-size:clamp(3rem,6vw,6.5rem);font-weight:300;line-height:1.05;color:var(--white);margin-bottom:1.2rem;}
+.estudios-hero-title em{font-style:italic;color:var(--accent);}
+.estudios-hero-sub{font-size:1rem;color:var(--g4);max-width:44ch;margin:0 auto 3rem;}
+.estudios-cta{display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2.5rem;border:1px solid var(--accent);color:var(--accent);font-family:var(--fb);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;background:transparent;transition:all .3s;}
+.estudios-cta:hover{background:var(--accent);color:var(--black);}
+.estudios-cta svg{width:16px;height:16px;transition:transform .3s;}
+.estudios-cta:hover svg{transform:translateX(4px);}
+.estudios-count{margin-top:2rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);}
+#galeria{background:var(--white);}
+.galeria-intro{max-width:50ch;color:var(--g3);font-size:.95rem;margin-bottom:3rem;}
+.galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:200px 200px;gap:3px;}
+.galeria-item{background:var(--g2);position:relative;overflow:hidden;cursor:pointer;}
+.galeria-item:first-child{grid-column:span 2;grid-row:span 2;}
+.galeria-item img{width:100%;height:100%;object-fit:cover;display:block;}
+.galeria-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;}
+.galeria-placeholder svg{opacity:.15;}
+.galeria-placeholder span{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g4);}
+.galeria-overlay{position:absolute;inset:0;background:var(--black);opacity:0;transition:opacity .3s;}
+.galeria-item:hover .galeria-overlay{opacity:.5;}
+#contacto{background:var(--black);color:var(--white);}
+#contacto .section-title{color:var(--white);}
+#contacto .section-label{color:var(--accent);}
+.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.contacto-item{display:flex;gap:1.2rem;margin-bottom:1.8rem;align-items:flex-start;}
+.contacto-icon{width:36px;height:36px;border:1px solid var(--g2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.15rem;}
+.contacto-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;}
+.c-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem;}
+.c-val{font-size:.9rem;color:var(--g5);line-height:1.5;}
+.map-wrap{margin-top:1.5rem;border:1px solid var(--g2);overflow:hidden;line-height:0;}
+.map-wrap iframe{width:100%;height:230px;border:none;display:block;}
+.map-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:.8rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);text-decoration:none;transition:color .2s;}
+.map-link:hover{color:var(--white);}
+.form-group{margin-bottom:1.4rem;}
+.form-label{display:block;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g4);margin-bottom:.5rem;}
+.form-input,.form-textarea{width:100%;background:var(--g1);border:1px solid var(--g2);color:var(--white);font-family:var(--fb);font-size:.9rem;padding:.9rem 1rem;outline:none;transition:border-color .2s;resize:none;}
+.form-input:focus,.form-textarea:focus{border-color:var(--accent);}
+.form-textarea{height:110px;}
+.btn-submit{width:100%;padding:1rem;background:var(--white);color:var(--black);border:none;font-family:var(--fb);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .2s,color .2s;}
+.btn-submit:hover{background:var(--accent);color:var(--white);}
+.form-success{display:none;padding:1rem;background:rgba(184,169,138,.15);border:1px solid var(--accent);color:var(--accent);font-size:.85rem;text-align:center;margin-top:1rem;}
+footer{background:var(--black);border-top:1px solid var(--g2);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:var(--fd);font-size:1rem;color:var(--white);letter-spacing:.06em;}
+.footer-logo span{color:var(--accent);}
+.footer-copy{font-size:.72rem;color:var(--g4);}
+.footer-verse{font-family:var(--fd);font-style:italic;font-size:.85rem;color:var(--g4);}
+
+/* ESTUDIOS PAGE */
+#estudiosPage{display:none;position:fixed;inset:0;z-index:500;background:var(--white);overflow-y:auto;}
+#estudiosPage.open{display:block;}
+.ep-nav{position:sticky;top:0;background:rgba(248,247,244,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--g6);padding:1rem 4rem;display:flex;align-items:center;justify-content:space-between;z-index:10;}
+.ep-nav-logo{font-family:var(--fd);font-size:1rem;font-weight:600;color:var(--black);}
+.ep-nav-logo span{color:var(--adark);}
+.ep-back{display:flex;align-items:center;gap:.5rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g3);cursor:pointer;border:none;background:transparent;font-family:var(--fb);transition:color .2s;}
+.ep-back:hover{color:var(--black);}
+.ep-hero{background:var(--black);padding:6rem 4rem 5rem;text-align:center;position:relative;overflow:hidden;}
+.ep-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(184,169,138,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(184,169,138,.04) 1px,transparent 1px);background-size:50px 50px;}
+.ep-hero-label{font-size:.68rem;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;position:relative;}
+.ep-hero-title{font-family:var(--fd);font-size:clamp(3rem,6vw,6rem);font-weight:300;color:var(--white);line-height:1.05;margin-bottom:1rem;position:relative;}
+.ep-hero-title em{font-style:italic;color:var(--accent);}
+.ep-hero-sub{font-size:1rem;color:var(--g4);max-width:48ch;margin:0 auto;position:relative;}
+.ep-filter-bar{padding:1.5rem 4rem;display:flex;gap:.5rem;flex-wrap:wrap;border-bottom:1px solid var(--g6);}
+.ep-filter{padding:.35rem .9rem;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--g5);background:transparent;color:var(--g3);cursor:pointer;font-family:var(--fb);transition:all .2s;}
+.ep-filter:hover,.ep-filter.active{background:var(--black);border-color:var(--black);color:var(--white);}
+.ep-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2px;background:var(--g6);padding:2px;margin:2rem 4rem 4rem;}
+.ep-card{background:var(--white);cursor:pointer;transition:transform .25s,box-shadow .25s;}
+.ep-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.12);}
+.ep-card-header{background:var(--black);padding:2rem 2rem 1.5rem;position:relative;overflow:hidden;}
+.ep-card-header::after{content:'';position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;border:1px solid rgba(184,169,138,.15);border-radius:50%;}
+.ep-card-num{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem;}
+.ep-card-title{font-family:var(--fd);font-size:1.55rem;font-weight:300;color:var(--white);line-height:1.2;}
+.ep-card-pasaje{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g4);margin-top:.5rem;}
+.ep-card-body{padding:1.5rem 2rem 2rem;}
+.ep-card-desc{font-size:.9rem;color:var(--g3);line-height:1.7;margin-bottom:1.2rem;}
+.ep-card-footer{display:flex;align-items:center;justify-content:space-between;}
+.ep-card-read{display:inline-flex;align-items:center;gap:.5rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--adark);}
+.ep-card-read svg{width:14px;height:14px;transition:transform .2s;}
+.ep-card:hover .ep-card-read svg{transform:translateX(3px);}
+.ep-card-tipo{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:.15rem .5rem;border:1px solid var(--g5);color:var(--g4);}
+.ep-empty{grid-column:1/-1;text-align:center;padding:4rem;color:var(--g4);}
+.ep-modal-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:600;backdrop-filter:blur(6px);}
+.ep-modal-bg.open{display:flex;align-items:center;justify-content:center;padding:2rem;}
+.ep-modal{background:var(--white);max-width:680px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
+.ep-modal-header{background:var(--black);padding:3rem 3rem 2.5rem;position:relative;}
+.ep-modal-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;color:var(--g4);font-size:1.4rem;cursor:pointer;line-height:1;}
+.ep-modal-close:hover{color:var(--white);}
+.ep-modal-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem;}
+.ep-modal-title{font-family:var(--fd);font-size:2.2rem;font-weight:300;color:var(--white);line-height:1.15;margin-bottom:.5rem;}
+.ep-modal-pasaje{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g4);}
+.ep-modal-body{padding:2.5rem 3rem;}
+.ep-modal-body p{font-size:1rem;color:var(--g2);line-height:1.85;margin-bottom:1.2rem;}
+.ep-modal-body .verse-block{border-left:3px solid var(--accent);padding:1rem 1.5rem;background:var(--g6);margin:1.5rem 0;}
+.ep-modal-body .verse-block p{font-family:var(--fd);font-style:italic;font-size:1.15rem;color:var(--black);margin:0;}
+.ep-modal-body .verse-block cite{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--adark);font-style:normal;margin-top:.4rem;display:block;}
+.ep-modal-body h3{font-family:var(--fd);font-size:1.4rem;font-weight:600;color:var(--black);margin:2rem 0 .6rem;}
+
+/* LIGHTBOX */
+.lb-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:2000;align-items:center;justify-content:center;}
+.lb-bg.open{display:flex;}
+.lb-img-wrap{position:relative;max-width:90vw;max-height:88vh;display:flex;align-items:center;justify-content:center;}
+.lb-img-wrap img{max-width:90vw;max-height:85vh;object-fit:contain;display:block;border:1px solid rgba(255,255,255,.08);}
+.lb-close{position:fixed;top:1.2rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.6);font-size:2rem;cursor:pointer;line-height:1;z-index:10;transition:color .2s;}
+.lb-close:hover{color:#fff;}
+.lb-arrow{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:1.6rem;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s;z-index:10;}
+.lb-arrow:hover{background:rgba(255,255,255,.25);}
+.lb-arrow-left{left:1.2rem;}
+.lb-arrow-right{right:1.2rem;}
+.lb-counter{position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+/* CONFIRM MODAL */
+.confirm-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;backdrop-filter:blur(6px);align-items:center;justify-content:center;}
+.confirm-bg.open{display:flex;}
+.confirm-box{background:var(--g1);border:1px solid var(--g2);padding:2.5rem;max-width:380px;width:90%;text-align:center;}
+.confirm-icon{font-size:2.5rem;margin-bottom:1rem;}
+.confirm-title{font-family:var(--fd);font-size:1.5rem;color:var(--white);margin-bottom:.5rem;}
+.confirm-msg{font-size:.85rem;color:var(--g4);margin-bottom:2rem;line-height:1.6;}
+.confirm-btns{display:flex;gap:.8rem;justify-content:center;}
+.confirm-yes{padding:.75rem 2rem;background:#c05050;color:#fff;border:none;font-family:var(--fb);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+.confirm-yes:hover{background:#e04040;}
+.confirm-no{padding:.75rem 2rem;background:transparent;color:var(--g4);border:1px solid var(--g3);font-family:var(--fb);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.confirm-no:hover{color:var(--white);border-color:var(--white);}
+
+/* EDIT MODAL */
+.edit-bg{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9998;backdrop-filter:blur(6px);align-items:center;justify-content:center;}
+.edit-bg.open{display:flex;}
+.edit-box{background:var(--g1);border:1px solid var(--g2);padding:2rem;max-width:680px;width:95%;max-height:92vh;overflow-y:auto;}
+.edit-box-title{font-family:var(--fd);font-size:1.5rem;color:var(--white);margin-bottom:.3rem;}
+.edit-box-sub{font-size:.72rem;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.5rem;}
+.edit-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g4);margin-bottom:.4rem;display:block;}
+.edit-input,.edit-select,.edit-textarea{width:100%;background:var(--g2);border:1px solid var(--g3);color:var(--white);font-family:var(--fb);font-size:.88rem;padding:.7rem .9rem;outline:none;margin-bottom:1rem;transition:border-color .2s;}
+.edit-input:focus,.edit-select:focus,.edit-textarea:focus{border-color:var(--accent);}
+.edit-select option{background:var(--g2);}
+.edit-textarea{resize:vertical;}
+.edit-btns{display:flex;gap:.8rem;margin-top:.5rem;flex-wrap:wrap;}
+.edit-save{padding:.75rem 1.8rem;background:var(--accent);color:var(--black);border:none;font-family:var(--fb);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:background .2s;}
+.edit-save:hover{background:#c8b99a;}
+.edit-cancel{padding:.75rem 1.4rem;background:transparent;color:var(--g4);border:1px solid var(--g3);font-family:var(--fb);font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:all .2s;}
+.edit-cancel:hover{color:var(--white);border-color:var(--g4);}
+
+/* BACK OFFICE */
+.bo-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:999;backdrop-filter:blur(8px);}
+.bo-overlay.open{display:flex;align-items:center;justify-content:center;}
+.bo-login{background:var(--g1);border:1px solid var(--g2);padding:3rem;width:340px;text-align:center;position:relative;}
+.bo-login h2{font-family:var(--fd);font-size:1.8rem;color:var(--white);margin-bottom:.4rem;}
+.bo-login p{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;}
+.bo-login input{width:100%;background:var(--g2);border:1px solid var(--g3);color:var(--white);font-family:var(--fb);font-size:.95rem;padding:.8rem 1rem;outline:none;margin-bottom:1rem;text-align:center;letter-spacing:.3em;}
+.bo-login input:focus{border-color:var(--accent);}
+.bo-login-btn{width:100%;padding:.9rem;background:var(--accent);color:var(--black);border:none;font-family:var(--fb);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;}
+.bo-login-err{color:#e07070;font-size:.78rem;margin-top:.8rem;display:none;}
+.bo-close-x{position:absolute;top:1rem;right:1.2rem;color:var(--g4);font-size:1.4rem;cursor:pointer;background:none;border:none;}
+.bo-panel{display:none;position:fixed;inset:0;background:var(--black);z-index:1000;overflow-y:auto;}
+.bo-panel.open{display:block;}
+.bo-header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 2.5rem;background:var(--g1);border-bottom:1px solid var(--g2);position:sticky;top:0;z-index:10;}
+.bo-header-logo{font-family:var(--fd);font-size:1.1rem;color:var(--white);}
+.bo-header-logo span{color:var(--accent);}
+.bo-header-right{display:flex;align-items:center;gap:1.5rem;}
+.bo-header-user{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);}
+.bo-exit{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g4);cursor:pointer;border:1px solid var(--g2);padding:.35rem .8rem;background:transparent;font-family:var(--fb);transition:all .2s;}
+.bo-exit:hover{color:var(--white);border-color:var(--g4);}
+.bo-body{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 60px);}
+.bo-sidebar{background:var(--g1);border-right:1px solid var(--g2);padding:2rem 0;}
+.bo-nav-item{display:block;padding:.8rem 1.8rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g4);cursor:pointer;transition:all .2s;border-left:2px solid transparent;user-select:none;}
+.bo-nav-item:hover{color:var(--white);background:var(--g2);}
+.bo-nav-item.active{color:var(--accent);border-left-color:var(--accent);background:rgba(184,169,138,.05);}
+.bo-nav-sep{margin:.8rem 1.8rem;border-top:1px solid var(--g2);}
+.bo-content{padding:2.5rem 3rem;}
+.bo-tab{display:none;}
+.bo-tab.active{display:block;}
+.bo-title{font-family:var(--fd);font-size:1.8rem;color:var(--white);margin-bottom:.3rem;}
+.bo-subtitle{font-size:.78rem;color:var(--g4);margin-bottom:2rem;}
+.bo-card{background:var(--g1);border:1px solid var(--g2);padding:1.5rem;margin-bottom:1.5rem;}
+.bo-card-title{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;}
+.bo-input,.bo-select,.bo-textarea{width:100%;background:var(--g2);border:1px solid var(--g3);color:var(--white);font-family:var(--fb);font-size:.88rem;padding:.7rem .9rem;outline:none;margin-bottom:.8rem;transition:border-color .2s;}
+.bo-input:focus,.bo-select:focus,.bo-textarea:focus{border-color:var(--accent);}
+.bo-select option{background:var(--g2);}
+.bo-textarea{height:90px;resize:vertical;}
+.bo-btn-primary{padding:.7rem 1.5rem;font-family:var(--fb);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;border:none;cursor:pointer;background:var(--accent);color:var(--black);transition:background .2s;}
+.bo-btn-primary:hover{background:#c8b99a;}
+.bo-btn-danger{padding:.38rem .8rem;font-family:var(--fb);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;background:#c05050;color:#fff;transition:background .2s;margin-right:4px;}
+.bo-btn-danger:hover{background:#e04040;}
+.bo-btn-edit{padding:.38rem .8rem;font-family:var(--fb);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--accent);cursor:pointer;background:transparent;color:var(--accent);transition:all .2s;}
+.bo-btn-edit:hover{background:var(--accent);color:var(--black);}
+.bo-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.bo-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.bo-table th{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g4);padding:.6rem .8rem;text-align:left;border-bottom:1px solid var(--g2);}
+.bo-table td{padding:.75rem .8rem;border-bottom:1px solid var(--g2);color:var(--g5);vertical-align:middle;}
+.bo-table tr:hover td{background:rgba(255,255,255,.03);}
+.bo-badge{display:inline-block;padding:.15rem .5rem;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid;}
+.bo-badge-new{border-color:#4a9a6a;color:#4a9a6a;}
+.bo-badge-read{border-color:var(--g3);color:var(--g3);}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--g2);margin-bottom:2rem;}
+.stat-box{background:var(--g1);padding:1.5rem;text-align:center;}
+.stat-num{font-family:var(--fd);font-size:2.5rem;font-weight:300;color:var(--white);}
+.stat-lbl{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-top:.3rem;}
+.msg-detail{padding:1.2rem;background:var(--g2);border:1px solid var(--g3);font-size:.85rem;color:var(--g5);line-height:1.7;}
+.bo-success{display:none;color:#4a9a6a;font-size:.78rem;margin-top:.6rem;padding:.4rem .8rem;border:1px solid #4a9a6a;background:rgba(74,154,106,.08);}
+/* FOTOS */
+.bo-photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;}
+.bo-photo-slot{aspect-ratio:1;background:var(--g2);border:2px dashed var(--g3);position:relative;overflow:hidden;transition:border-color .2s;}
+.bo-photo-slot.empty{cursor:pointer;}
+.bo-photo-slot.empty:hover{border-color:var(--accent);}
+.slot-empty-inner{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;pointer-events:none;}
+.slot-label{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--g4);text-align:center;padding:0 .3rem;}
+.bo-photo-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.slot-hover{position:absolute;inset:0;background:rgba(0,0,0,.72);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;transition:opacity .2s;pointer-events:none;}
+.bo-photo-slot:hover .slot-hover{opacity:1;pointer-events:auto;}
+.slot-btn{padding:.35rem .8rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;font-family:var(--fb);white-space:nowrap;}
+.slot-btn-rep{background:var(--accent);color:var(--black);}
+.slot-btn-del{background:#c05050;color:#fff;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;position:fixed;inset:0;background:var(--white);align-items:center;justify-content:center;gap:2rem;z-index:99;}
+  .nav-toggle{display:flex;}
+  #inicio{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:4rem 1.5rem;}
+  .hero-right{min-height:40vh;}
+  section{padding:5rem 1.5rem;}
+  .contacto-grid{grid-template-columns:1fr;gap:3rem;}
+  .galeria-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .galeria-item:first-child{grid-column:span 2;grid-row:span 1;height:200px;}
+  footer{flex-direction:column;text-align:center;padding:1.5rem;}
+  .bo-body{grid-template-columns:1fr;}
+  .bo-sidebar{display:flex;overflow-x:auto;padding:.5rem 0;}
+  .bo-nav-item{white-space:nowrap;padding:.7rem 1.2rem;border-left:none;border-bottom:2px solid transparent;}
+  .bo-nav-item.active{border-left:none;border-bottom-color:var(--accent);}
+  .bo-content{padding:1.5rem;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .bo-grid2{grid-template-columns:1fr;}
+  .ep-nav,.ep-hero,.ep-filter-bar{padding-left:1.5rem;padding-right:1.5rem;}
+  .ep-grid{margin:1.5rem;grid-template-columns:1fr;}
+  .ep-modal-header,.ep-modal-body{padding:2rem 1.5rem;}
+  .confirm-btns{flex-direction:column;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#inicio" class="nav-logo">Iglesia de <span>Cristo</span> — Hunter</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="navGo('inicio')">Inicio</a></li>
+    <li><a onclick="navGo('horarios')">Reuniones</a></li>
+    <li><a onclick="navGo('programa')">Programa</a></li>
+    <li><a onclick="navGo('estudios')">Estudios</a></li>
+    <li><a onclick="navGo('galeria')">Galería</a></li>
+    <li><a onclick="navGo('contacto')">Contacto</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <button class="admin-btn" onclick="openLogin()">⚙ Admin</button>
+    <button class="nav-toggle" onclick="toggleNav()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section id="inicio">
+  <div class="hero-left">
+    <p class="hero-tag">Bienvenidos a nuestra congregación</p>
+    <h1 class="hero-title">Iglesia de<br><em>Cristo</em></h1>
+    <p class="hero-location">📍 Hunter, Arequipa, Perú</p>
+    <p class="hero-subtitle">Una congregación unida en la fe, la Palabra y la comunión del Señor. Todos son bienvenidos a conocer la verdad que libera.</p>
+    <blockquote class="hero-verse"><span id="verseText">Cargando versículo...</span><cite id="verseRef"></cite></blockquote>
+  </div>
+  <div class="hero-right">
+    <div class="hero-grid-lines"></div>
+    <div class="hero-cross"><svg viewBox="0 0 100 120" fill="none"><rect x="42" y="0" width="16" height="120" fill="white"/><rect x="10" y="28" width="80" height="16" fill="white"/></svg></div>
+    <div class="hero-right-text">
+      <div class="hero-right-label">✦ Versículo de la semana</div>
+      <div class="hero-right-quote" id="weekVerse">Cargando...</div>
+    </div>
+  </div>
+</section>
+
+<section id="horarios">
+  <p class="section-label reveal">Nos reunimos</p>
+  <h2 class="section-title reveal">Horarios de<br><em>Reuniones</em></h2>
+  <div class="horarios-grid reveal">
+    <div class="horario-card">
+      <div class="horario-day">Domingo</div>
+      <div class="horario-name">Culto Principal</div>
+      <div class="horario-time">10:00 – 12:00</div>
+      <div class="horario-desc">Adoración, lectura bíblica, cena del Señor, ofrendas y mensaje. Toda la familia bienvenida. Presencial.</div>
+    </div>
+    <div class="horario-card">
+      <div class="horario-day">Domingo en la noche</div>
+      <div class="horario-badge">Virtual</div>
+      <div class="horario-name">Reunión de Varones</div>
+      <div class="horario-time">7:00 – 8:00 PM</div>
+      <div class="horario-desc">Reunión de edificación y estudio para los varones. Virtual cada domingo por la noche.</div>
+    </div>
+    <div class="horario-card">
+      <div class="horario-day">Lunes</div>
+      <div class="horario-badge">Virtual</div>
+      <div class="horario-name">Reunión de Damas</div>
+      <div class="horario-time">8:00 – 9:00 PM</div>
+      <div class="horario-desc">Comunión, oración y estudio bíblico para las hermanas. Virtual cada lunes.</div>
+    </div>
+  </div>
+</section>
+
+<section id="programa">
+  <p class="section-label reveal">Planificación</p>
+  <h2 class="prog-titulo reveal" id="progTituloSite">Programa <em>Anual</em> 2026</h2>
+  <div class="programa-filter reveal">
+    <button class="filter-btn active" onclick="filterPrograma('all',this)">Todos</button>
+    <button class="filter-btn" onclick="filterPrograma('culto',this)">Culto</button>
+    <button class="filter-btn" onclick="filterPrograma('estudio',this)">Estudios</button>
+    <button class="filter-btn" onclick="filterPrograma('especial',this)">Especiales</button>
+    <button class="filter-btn" onclick="filterPrograma('comunion',this)">Comunión</button>
+  </div>
+  <table class="programa-table reveal"><thead><tr><th>Fecha</th><th>Actividad</th><th>Tipo</th><th>Nota</th></tr></thead><tbody id="programaBody"></tbody></table>
+</section>
+
+<section id="estudios">
+  <p class="section-label reveal">Crecimiento espiritual</p>
+  <h2 class="estudios-hero-title reveal">Estudios, <em>Artículos</em><br>y Sermones <em>Bíblicos</em></h2>
+  <p class="estudios-hero-sub reveal">Recursos para edificar tu fe y profundizar en la Palabra de Dios.</p>
+  <button class="estudios-cta reveal" onclick="openEstudiosPage()">Leer estudios<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+  <p class="estudios-count reveal" id="estudiosCount"></p>
+</section>
+
+<section id="galeria">
+  <p class="section-label reveal">Nuestra congregación</p>
+  <h2 class="section-title reveal">Galería <em>de Fotos</em></h2>
+  <p class="galeria-intro reveal">Momentos compartidos como familia en Cristo. Cultos, estudios y comunión en Hunter, Arequipa.</p>
+  <div class="galeria-grid reveal" id="galeriaGrid"></div>
+</section>
+
+<section id="contacto">
+  <p class="section-label reveal">Encuéntranos</p>
+  <h2 class="section-title reveal">Contacto &<br><em>Ubicación</em></h2>
+  <div class="contacto-grid">
+    <div class="reveal">
+      <div class="contacto-item">
+        <div class="contacto-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg></div>
+        <div><div class="c-label">Dirección</div><div class="c-val">Urb. Mirador Las Peñas, Las Peñas B-11<br>Hunter, Arequipa, Perú</div></div>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div><div class="c-label">Teléfono</div><div class="c-val">+51 (agregar número)</div></div>
+      </div>
+      <div class="contacto-item">
+        <div class="contacto-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div><div class="c-label">Correo</div><div class="c-val">iglesiadecristohunter@gmail.com</div></div>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.7097593602675!2d-71.54230522480525!3d-16.439560539172348!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424acf9dfd74e7%3A0x87dcdd850ee351f5!2sIglesia%20De%20Cristo%2C%20Mirador%20Las%20Pe%C3%B1as!5e0!3m2!1ses!2spe!4v1780521111565!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <a class="map-link" href="https://maps.app.goo.gl/c3dhzfsjq72k3ek4A" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+        Abrir en Google Maps
+      </a>
+    </div>
+    <div class="reveal">
+      <div class="form-group"><label class="form-label">Nombre</label><input type="text" class="form-input" id="cNombre" placeholder="Tu nombre completo"></div>
+      <div class="form-group"><label class="form-label">Correo electrónico</label><input type="email" class="form-input" id="cCorreo" placeholder="tu@correo.com"></div>
+      <div class="form-group"><label class="form-label">Asunto</label><input type="text" class="form-input" id="cAsunto" placeholder="¿De qué se trata?"></div>
+      <div class="form-group"><label class="form-label">Mensaje</label><textarea class="form-textarea" id="cMensaje" placeholder="¿En qué podemos ayudarte?"></textarea></div>
+      <button class="btn-submit" onclick="enviarMensaje()">Enviar mensaje</button>
+      <div class="form-success" id="formSuccess">✓ Mensaje enviado. Nos pondremos en contacto contigo pronto.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb-bg" id="lbBg" onclick="lbClickBg(event)">
+  <button class="lb-close" onclick="lbClose()">✕</button>
+  <button class="lb-arrow lb-arrow-left" onclick="lbPrev()">&#8592;</button>
+  <div class="lb-img-wrap"><img id="lbImg" src="" alt=""></div>
+  <button class="lb-arrow lb-arrow-right" onclick="lbNext()">&#8594;</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<footer>
+  <div class="footer-logo">Iglesia de <span>Cristo</span> — Hunter, Arequipa</div>
+  <div class="footer-verse">"La verdad os hará libres." — Juan 8:32</div>
+  <div class="footer-copy">© 2026 Iglesia de Cristo Hunter · Arequipa, Perú</div>
+</footer>
+
+<!-- PÁGINA ESTUDIOS -->
+<div id="estudiosPage">
+  <div class="ep-nav">
+    <span class="ep-nav-logo">Iglesia de <span>Cristo</span> — Hunter</span>
+    <button class="ep-back" onclick="closeEstudiosPage()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Volver al inicio
+    </button>
+  </div>
+  <div class="ep-hero">
+    <div class="ep-hero-label">Iglesia de Cristo Hunter · Arequipa</div>
+    <h1 class="ep-hero-title">Estudios, <em>Artículos</em><br>y Sermones <em>Bíblicos</em></h1>
+    <p class="ep-hero-sub">Recursos para crecer en la fe y conocer más la Palabra de Dios.</p>
+  </div>
+  <div class="ep-filter-bar">
+    <button class="ep-filter active" onclick="filterEP('all',this)">Todos</button>
+    <button class="ep-filter" onclick="filterEP('estudio',this)">Estudios</button>
+    <button class="ep-filter" onclick="filterEP('articulo',this)">Artículos</button>
+    <button class="ep-filter" onclick="filterEP('sermon',this)">Sermones</button>
+  </div>
+  <div class="ep-grid" id="epGrid"></div>
+</div>
+
+<div class="ep-modal-bg" id="epModalBg" onclick="closeModalBg(event)">
+  <div class="ep-modal">
+    <div class="ep-modal-header">
+      <button class="ep-modal-close" onclick="closeModalDirect()">✕</button>
+      <div class="ep-modal-label" id="mLabel"></div>
+      <h2 class="ep-modal-title" id="mTitle"></h2>
+      <div class="ep-modal-pasaje" id="mPasaje"></div>
+    </div>
+    <div class="ep-modal-body" id="mBody"></div>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="confirm-bg" id="confirmBg">
+  <div class="confirm-box">
+    <div class="confirm-icon">⚠️</div>
+    <div class="confirm-title" id="confirmTitle">¿Estás seguro?</div>
+    <div class="confirm-msg" id="confirmMsg">Esta acción no se puede deshacer.</div>
+    <div class="confirm-btns">
+      <button class="confirm-yes" id="confirmYes">Sí, eliminar</button>
+      <button class="confirm-no" onclick="closeConfirm()">No, cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- EDIT ESTUDIO MODAL -->
+<div class="edit-bg" id="editBg">
+  <div class="edit-box">
+    <div class="edit-box-title">Editar publicación</div>
+    <div class="edit-box-sub">✏ Modifica los campos y guarda los cambios</div>
+    <label class="edit-label">Título</label>
+    <input class="edit-input" id="editTitle" placeholder="Título">
+    <label class="edit-label">Pasaje bíblico</label>
+    <input class="edit-input" id="editPasaje" placeholder="Ej. Juan 3:16">
+    <label class="edit-label">Tipo</label>
+    <select class="edit-select" id="editTipo">
+      <option value="estudio">Estudio</option>
+      <option value="articulo">Artículo</option>
+      <option value="sermon">Sermón</option>
+    </select>
+    <label class="edit-label">Descripción breve (aparece en la tarjeta)</label>
+    <textarea class="edit-textarea" id="editDesc" style="height:70px"></textarea>
+    <label class="edit-label">Contenido completo (aparece al hacer clic en "Leer más")</label>
+    <textarea class="edit-textarea" id="editContenido" style="height:160px" placeholder="Puedes escribir el texto normal. Los párrafos separados por línea en blanco se mostrarán correctamente."></textarea>
+    <div class="edit-btns">
+      <button class="edit-save" onclick="guardarEdicion()">Guardar cambios</button>
+      <button class="edit-cancel" onclick="closeEditModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div class="bo-overlay" id="boOverlay">
+  <div class="bo-login">
+    <button class="bo-close-x" onclick="closeLogin()">✕</button>
+    <h2>Panel Admin</h2>
+    <p>IDC Admin — Iglesia de Cristo Hunter</p>
+    <input type="password" id="pinInput" placeholder="PIN" maxlength="1" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="bo-login-btn" onclick="doLogin()">Ingresar</button>
+    <div class="bo-login-err" id="loginErr">PIN incorrecto.</div>
+  </div>
+</div>
+
+<!-- PANEL -->
+<div class="bo-panel" id="boPanel">
+  <div class="bo-header">
+    <div class="bo-header-logo">Panel <span>IDC Admin</span></div>
+    <div class="bo-header-right">
+      <span class="bo-header-user">IDC ADMIN · Hunter, Arequipa</span>
+      <button class="bo-exit" onclick="closePanel()">✕ Salir</button>
+    </div>
+  </div>
+  <div class="bo-body">
+    <div class="bo-sidebar">
+      <div class="bo-nav-item active" onclick="showTab('dashboard',this)">📊 Dashboard</div>
+      <div class="bo-nav-sep"></div>
+      <div class="bo-nav-item" onclick="showTab('fotos',this)">🖼 Galería</div>
+      <div class="bo-nav-item" onclick="showTab('estudios-bo',this)">📖 Estudios</div>
+      <div class="bo-nav-item" onclick="showTab('programa-bo',this)">📅 Programa</div>
+      <div class="bo-nav-sep"></div>
+      <div class="bo-nav-item" onclick="showTab('mensajes',this)">✉ Mensajes <span id="msgBadge" style="color:#4a9a6a;font-size:.7rem"></span></div>
+      <div class="bo-nav-sep"></div>
+      <div class="bo-nav-item" onclick="showTab('verso',this)">✦ Versículo</div>
+    </div>
+    <div class="bo-content">
+
+      <div class="bo-tab active" id="tab-dashboard">
+        <div class="bo-title">Dashboard</div>
+        <div class="bo-subtitle">Resumen del sitio — Iglesia de Cristo Hunter</div>
+        <div class="stats-grid" id="statsGrid"></div>
+        <div class="bo-card">
+          <div class="bo-card-title">Últimos mensajes</div>
+          <table class="bo-table" id="dashMsgTable"><thead><tr><th>Nombre</th><th>Asunto</th><th>Fecha</th><th>Estado</th></tr></thead><tbody></tbody></table>
+        </div>
+      </div>
+
+      <div class="bo-tab" id="tab-fotos">
+        <div class="bo-title">Galería de Fotos</div>
+        <div class="bo-subtitle">Slot vacío → clic para subir foto. Slot con foto → pasa el cursor y usa los botones.</div>
+        <div class="bo-card">
+          <div class="bo-card-title">5 slots disponibles</div>
+          <div class="bo-photo-grid" id="boPhotoGrid"></div>
+        </div>
+      </div>
+
+      <div class="bo-tab" id="tab-estudios-bo">
+        <div class="bo-title">Estudios, Artículos & Sermones</div>
+        <div class="bo-subtitle">Agrega, edita o elimina publicaciones. Cada botón pide confirmación antes de eliminar.</div>
+        <div class="bo-card">
+          <div class="bo-card-title">➕ Nueva publicación</div>
+          <div class="bo-grid2">
+            <input class="bo-input" id="esTitle" placeholder="Título">
+            <input class="bo-input" id="esPasaje" placeholder="Pasaje bíblico (ej. Juan 3:16)">
+          </div>
+          <div class="bo-grid2">
+            <select class="bo-select" id="esTipo"><option value="estudio">Estudio</option><option value="articulo">Artículo</option><option value="sermon">Sermón</option></select>
+            <input class="bo-input" id="esVerso" placeholder="Versículo clave (opcional)">
+          </div>
+          <textarea class="bo-textarea" id="esDesc" placeholder="Descripción breve (aparece en la tarjeta)..."></textarea>
+          <textarea class="bo-textarea" id="esContenido" placeholder="Contenido completo (aparece al abrir el estudio)..."></textarea>
+          <button class="bo-btn-primary" onclick="addEstudio()">+ Publicar</button>
+          <div class="bo-success" id="esSuccess">✓ Publicación agregada al sitio.</div>
+        </div>
+        <div class="bo-card">
+          <div class="bo-card-title">Publicaciones — <span id="estudiosCountBO">0</span> en total</div>
+          <table class="bo-table">
+            <thead><tr><th>#</th><th>Título</th><th>Pasaje</th><th>Tipo</th><th style="width:150px;text-align:center">Acciones</th></tr></thead>
+            <tbody id="estudiosBoList"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bo-tab" id="tab-programa-bo">
+        <div class="bo-title">Programa Anual</div>
+        <div class="bo-subtitle">Edita el título y gestiona las actividades. Cada eliminación pide confirmación.</div>
+        <div class="bo-card">
+          <div class="bo-card-title">✏ Título del programa</div>
+          <div style="display:flex;gap:.8rem;align-items:flex-start">
+            <input class="bo-input" id="progTituloInput" placeholder="Ej: Programa Anual 2027" style="margin-bottom:0;flex:1">
+            <button class="bo-btn-primary" onclick="guardarTituloPrograma()" style="white-space:nowrap">Guardar</button>
+          </div>
+          <div class="bo-success" id="tituloSuccess">✓ Título actualizado en el sitio.</div>
+        </div>
+        <div class="bo-card">
+          <div class="bo-card-title">➕ Agregar actividad</div>
+          <div class="bo-grid2">
+            <input class="bo-input" id="prFecha" placeholder="Fecha (ej. 15 Agosto)">
+            <input class="bo-input" id="prActividad" placeholder="Nombre de la actividad">
+          </div>
+          <div class="bo-grid2">
+            <select class="bo-select" id="prTipo"><option value="culto">Culto</option><option value="estudio">Estudio</option><option value="especial">Especial</option><option value="comunion">Comunión</option></select>
+            <input class="bo-input" id="prNota" placeholder="Nota o responsable (opcional)">
+          </div>
+          <button class="bo-btn-primary" onclick="addActividad()">+ Agregar al programa</button>
+          <div class="bo-success" id="progSuccess">✓ Actividad agregada.</div>
+        </div>
+        <div class="bo-card">
+          <div class="bo-card-title">Actividades — <span id="progCount">0</span> en total</div>
+          <table class="bo-table">
+            <thead><tr><th>Fecha</th><th>Actividad</th><th>Tipo</th><th>Nota</th><th style="width:90px;text-align:center">Eliminar</th></tr></thead>
+            <tbody id="programaBoList"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="bo-tab" id="tab-mensajes">
+        <div class="bo-title">Mensajes Recibidos</div>
+        <div class="bo-subtitle">Haz clic en una fila para leer el mensaje completo.</div>
+        <div class="bo-card">
+          <div class="bo-card-title">Bandeja de entrada</div>
+          <table class="bo-table"><thead><tr><th>Nombre</th><th>Correo</th><th>Asunto</th><th>Fecha</th><th>Estado</th></tr></thead><tbody id="mensajesList"></tbody></table>
+        </div>
+      </div>
+
+      <div class="bo-tab" id="tab-verso">
+        <div class="bo-title">Versículo Semanal</div>
+        <div class="bo-subtitle">Se actualiza automáticamente con IA. También puedes editarlo manualmente.</div>
+        <div class="bo-card">
+          <div class="bo-card-title">✦ Versículo actual</div>
+          <div style="padding:1rem;background:var(--g2);border-left:2px solid var(--accent);margin-bottom:1rem;">
+            <div style="font-family:var(--fd);font-style:italic;font-size:1.15rem;color:var(--white)" id="boVersoText">Cargando...</div>
+            <div style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-top:.4rem" id="boVersoRef"></div>
+          </div>
+          <button class="bo-btn-primary" onclick="generarVerso()" id="versoBtn">↺ Generar con IA</button>
+          <span id="versoLoading" style="display:none;font-size:.78rem;color:var(--g4);margin-left:1rem">Generando...</span>
+        </div>
+        <div class="bo-card">
+          <div class="bo-card-title">Editar manualmente</div>
+          <textarea class="bo-textarea" id="manualVerso" placeholder="Texto del versículo..."></textarea>
+          <input class="bo-input" id="manualRef" placeholder="Referencia (ej. Juan 3:16)">
+          <button class="bo-btn-primary" onclick="guardarVersoManual()">Guardar</button>
+          <div class="bo-success" id="versoSuccess">✓ Versículo actualizado.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<input type="file" id="photoFileInput" accept="image/*" style="display:none" onchange="handlePhotoUpload(event)">
+
+<script>
+// ══ STATE ══
+let currentPhotoSlot = 0;
+let currentEPFilter = 'all';
+let editingEstudioId = null;
+
+let state = {
+  nextId: 200,
+  programaTitulo: 'Programa <em>Anual</em> 2026',
+  programa: [
+    {id:1,fecha:"4 Enero",actividad:"Culto de Año Nuevo",tipo:"especial",nota:"Toda la congregación"},
+    {id:2,fecha:"1 Febrero",actividad:"Cena del Señor",tipo:"comunion",nota:"Primer domingo"},
+    {id:3,fecha:"15 Febrero",actividad:"Evangelismo Comunitario",tipo:"especial",nota:"Hunter, Arequipa"},
+    {id:4,fecha:"1 Marzo",actividad:"Cena del Señor",tipo:"comunion",nota:""},
+    {id:5,fecha:"22 Marzo",actividad:"Estudio: Epístolas de Pablo",tipo:"estudio",nota:"Romanos"},
+    {id:6,fecha:"19 Abril",actividad:"Culto de Resurrección",tipo:"especial",nota:"Domingo de Pascua"},
+    {id:7,fecha:"26 Abril",actividad:"Bautismos",tipo:"especial",nota:"Previa preparación"},
+    {id:8,fecha:"17 Mayo",actividad:"Día de la Biblia",tipo:"estudio",nota:"Lectura NT completa"},
+    {id:9,fecha:"7 Junio",actividad:"Cena del Señor",tipo:"comunion",nota:""},
+    {id:10,fecha:"14 Junio",actividad:"Culto Dominical",tipo:"culto",nota:""},
+    {id:11,fecha:"19 Julio",actividad:"Culto Patriótico",tipo:"especial",nota:"Fiestas Patrias Perú"},
+    {id:12,fecha:"16 Agosto",actividad:"Retiro Espiritual",tipo:"especial",nota:"Lugar por confirmar"},
+    {id:13,fecha:"20 Septiembre",actividad:"Estudio: Los Salmos",tipo:"estudio",nota:"Salmos 1-50"},
+    {id:14,fecha:"18 Octubre",actividad:"Culto Aniversario",tipo:"especial",nota:"Aniversario congregación"},
+    {id:15,fecha:"20 Diciembre",actividad:"Culto Navideño",tipo:"especial",nota:"Nacimiento de Cristo"},
+  ],
+  estudios: [
+    {id:1,title:"El Plan de Salvación",pasaje:"Juan 3:1-21",tipo:"estudio",desc:"Un recorrido por el evangelio de Juan explorando la gracia y el nuevo nacimiento en Cristo.",contenido:"<p>El plan de salvación es la expresión más profunda del amor de Dios hacia la humanidad. Desde antes de la fundación del mundo, Dios diseñó un camino de redención para el ser humano caído.</p><div class='verse-block'><p>\"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.\"</p><cite>Juan 3:16</cite></div><h3>¿Qué es el nuevo nacimiento?</h3><p>Jesús le explicó a Nicodemo que para ver el reino de Dios era necesario nacer de nuevo. Este nuevo nacimiento es espiritual: una transformación interior que nos hace nuevas criaturas en Cristo.</p>"},
+    {id:2,title:"La Oración Eficaz",pasaje:"Santiago 5:13-18",tipo:"estudio",desc:"Principios bíblicos para una vida de oración transformadora y poderosa.",contenido:"<p>La oración es el canal de comunicación entre el creyente y Dios. No es un ritual vacío, sino una conversación real con el Padre celestial.</p><div class='verse-block'><p>\"La oración eficaz del justo puede mucho.\"</p><cite>Santiago 5:16b</cite></div><h3>¿Qué hace eficaz a una oración?</h3><p>Santiago nos muestra a Elías como ejemplo: era un hombre con pasiones semejantes a las nuestras, y su oración detuvo la lluvia por tres años y medio. El secreto estaba en su fe y perseverancia.</p>"},
+    {id:3,title:"La Iglesia del Nuevo Testamento",pasaje:"Hechos 2:42-47",tipo:"articulo",desc:"Cómo era la iglesia primitiva: modelo de comunión, enseñanza y misión.",contenido:"<p>La iglesia del primer siglo es el modelo que Dios nos ha dado para la congregación cristiana.</p><div class='verse-block'><p>\"Y perseveraban en la doctrina de los apóstoles, en la comunión unos con otros, en el partimiento del pan y en las oraciones.\"</p><cite>Hechos 2:42</cite></div><h3>Cuatro pilares</h3><p>La doctrina apostólica, la comunión, el partimiento del pan y las oraciones son los fundamentos de la iglesia del Nuevo Testamento.</p>"},
+    {id:4,title:"El Bautismo Bíblico",pasaje:"Romanos 6:1-11",tipo:"estudio",desc:"El significado profundo del bautismo como participación en la muerte y resurrección de Cristo.",contenido:"<p>El bautismo es uno de los temas más importantes del Nuevo Testamento.</p><div class='verse-block'><p>\"Porque somos sepultados juntamente con él para muerte por el bautismo, a fin de que como Cristo resucitó de los muertos por la gloria del Padre, así también nosotros andemos en vida nueva.\"</p><cite>Romanos 6:4</cite></div><p>Pedro fue claro en Pentecostés: el bautismo es para el perdón de los pecados y para recibir el don del Espíritu Santo (Hechos 2:38).</p>"},
+  ],
+  fotos: [null,null,null,null,null],
+  mensajes: [],
+  verso: {text:"",ref:"",ensenanza:""}
+};
+
+const tipoLabels={culto:'Culto',estudio:'Estudio',especial:'Especial',comunion:'Comunión'};
+const epTipoLabels={estudio:'Estudio',articulo:'Artículo',sermon:'Sermón'};
+
+// ══ CONFIRM MODAL ══
+function confirm2(title, msg, onYes) {
+  document.getElementById('confirmTitle').textContent = title;
+  document.getElementById('confirmMsg').textContent = msg;
+  document.getElementById('confirmBg').classList.add('open');
+  const yesBtn = document.getElementById('confirmYes');
+  // Remove previous listener
+  const newBtn = yesBtn.cloneNode(true);
+  yesBtn.parentNode.replaceChild(newBtn, yesBtn);
+  newBtn.addEventListener('click', function() {
+    closeConfirm();
+    onYes();
+  });
+}
+function closeConfirm() {
+  document.getElementById('confirmBg').classList.remove('open');
+}
+
+// ══ EDIT ESTUDIO MODAL ══
+function openEditModal(id) {
+  const e = state.estudios.find(x => x.id === id);
+  if (!e) return;
+  editingEstudioId = id;
+  document.getElementById('editTitle').value = e.title;
+  document.getElementById('editPasaje').value = e.pasaje;
+  document.getElementById('editTipo').value = e.tipo;
+  document.getElementById('editDesc').value = e.desc;
+  // Convert HTML back to plain text for editing
+  const tmp = document.createElement('div');
+  tmp.innerHTML = e.contenido || '';
+  document.getElementById('editContenido').value = tmp.innerText || tmp.textContent || '';
+  document.getElementById('editBg').classList.add('open');
+}
+function closeEditModal() {
+  document.getElementById('editBg').classList.remove('open');
+  editingEstudioId = null;
+}
+function guardarEdicion() {
+  const idx = state.estudios.findIndex(x => x.id === editingEstudioId);
+  if (idx === -1) return;
+  const t = document.getElementById('editTitle').value.trim();
+  const p = document.getElementById('editPasaje').value.trim();
+  if (!t || !p) { alert('Título y pasaje son obligatorios.'); return; }
+  const c = document.getElementById('editContenido').value.trim();
+  const contenidoHtml = c
+    ? '<p>' + c.replace(/\n\n+/g,'</p><p>').replace(/\n/g,'<br>') + '</p>'
+    : '<p>' + (document.getElementById('editDesc').value.trim() || t) + '</p>';
+  state.estudios[idx] = {
+    ...state.estudios[idx],
+    title: t,
+    pasaje: p,
+    tipo: document.getElementById('editTipo').value,
+    desc: document.getElementById('editDesc').value.trim() || t,
+    contenido: contenidoHtml
+  };
+  closeEditModal();
+  renderEstudiosBO();
+  renderEstudiosCount();
+  if (document.getElementById('estudiosPage').classList.contains('open')) renderEPGrid(currentEPFilter);
+}
+
+// ══ VERSO ══
+const versosFallback=[
+  {text:"Porque de tal manera amó Dios al mundo, que ha dado a su Hijo unigénito, para que todo aquel que en él cree, no se pierda, mas tenga vida eterna.",ref:"Juan 3:16"},
+  {text:"Todo lo puedo en Cristo que me fortalece.",ref:"Filipenses 4:13"},
+  {text:"El Señor es mi pastor; nada me faltará.",ref:"Salmos 23:1"},
+  {text:"No temas, porque yo estoy contigo; no desmayes, porque yo soy tu Dios.",ref:"Isaías 41:10"},
+  {text:"La fe es la certeza de lo que se espera, la convicción de lo que no se ve.",ref:"Hebreos 11:1"},
+  {text:"Porque yo sé los pensamientos que tengo acerca de vosotros, pensamientos de paz y no de mal.",ref:"Jeremías 29:11"},
+  {text:"Encomienda al Señor tus obras, y tus pensamientos serán afirmados.",ref:"Proverbios 16:3"},
+  {text:"Venid a mí todos los que estáis trabajados y cargados, y yo os haré descansar.",ref:"Mateo 11:28"},
+];
+async function generarVerso(){
+  const btn=document.getElementById('versoBtn'),ld=document.getElementById('versoLoading');
+  btn.disabled=true;ld.style.display='inline';
+  try{
+    const sem=Math.ceil((new Date()-new Date(new Date().getFullYear(),0,1))/604800000);
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:300,messages:[{role:"user",content:`Eres un asistente bíblico para una Iglesia de Cristo en Arequipa, Perú. Genera un versículo bíblico edificante y una enseñanza breve (máx. 1 oración) para la semana ${sem} del año. Responde SOLO en JSON sin backticks: {"versiculo":"texto","referencia":"Libro cap:vers","ensenanza":"Una oración"}`}]})});
+    const d=await r.json();
+    const txt=d.content.map(i=>i.text||'').join('').replace(/```json|```/g,'').trim();
+    const p=JSON.parse(txt);
+    state.verso={text:p.versiculo,ref:p.referencia,ensenanza:p.ensenanza||""};
+  }catch(e){
+    const fb=versosFallback[Math.floor(Date.now()/604800000)%versosFallback.length];
+    state.verso={text:fb.text,ref:fb.ref,ensenanza:""};
+  }
+  updateVersoUI();btn.disabled=false;ld.style.display='none';
+}
+function updateVersoUI(){
+  const v=state.verso;if(!v.text)return;
+  document.getElementById('verseText').textContent='"'+v.text+'"';
+  document.getElementById('verseRef').textContent='— '+v.ref;
+  document.getElementById('weekVerse').innerHTML=`"${v.text}"<span class="verse-ref">— ${v.ref}</span>${v.ensenanza?`<span style="display:block;font-size:.8rem;color:var(--g4);margin-top:.5rem;font-family:var(--fb);font-style:normal">${v.ensenanza}</span>`:''}`;
+  document.getElementById('boVersoText').textContent=v.text;
+  document.getElementById('boVersoRef').textContent=v.ref;
+}
+function guardarVersoManual(){
+  const t=document.getElementById('manualVerso').value.trim();
+  const r=document.getElementById('manualRef').value.trim();
+  if(!t||!r){alert('Completa texto y referencia.');return;}
+  state.verso={text:t,ref:r,ensenanza:""};updateVersoUI();flashSuccess('versoSuccess');
+}
+(async()=>{
+  const fb=versosFallback[Math.floor(Date.now()/604800000)%versosFallback.length];
+  state.verso={text:fb.text,ref:fb.ref,ensenanza:""};updateVersoUI();
+  try{
+    const sem=Math.ceil((new Date()-new Date(new Date().getFullYear(),0,1))/604800000);
+    const r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:300,messages:[{role:"user",content:`Eres un asistente bíblico para una Iglesia de Cristo en Arequipa, Perú. Genera un versículo bíblico edificante y una enseñanza breve (máx. 1 oración) para la semana ${sem} del año. Responde SOLO en JSON sin backticks: {"versiculo":"texto","referencia":"Libro cap:vers","ensenanza":"Una oración"}`}]})});
+    const d=await r.json();
+    const txt=d.content.map(i=>i.text||'').join('').replace(/```json|```/g,'').trim();
+    const p=JSON.parse(txt);
+    state.verso={text:p.versiculo,ref:p.referencia,ensenanza:p.ensenanza||""};updateVersoUI();
+  }catch(e){}
+})();
+
+function flashSuccess(id){
+  const el=document.getElementById(id);if(!el)return;
+  el.style.display='block';clearTimeout(el._t);el._t=setTimeout(()=>el.style.display='none',3000);
+}
+
+// ══ AUTH ══
+const PIN="9";
+function openLogin(){document.getElementById('boOverlay').classList.add('open');document.getElementById('pinInput').value='';document.getElementById('loginErr').style.display='none';}
+function closeLogin(){document.getElementById('boOverlay').classList.remove('open');}
+function doLogin(){if(document.getElementById('pinInput').value.trim()===PIN){closeLogin();openPanel();}else document.getElementById('loginErr').style.display='block';}
+function openPanel(){document.getElementById('boPanel').classList.add('open');renderAll();}
+function closePanel(){document.getElementById('boPanel').classList.remove('open');}
+
+// ══ NAV ══
+function navGo(id){
+  document.getElementById('navLinks').classList.remove('open');
+  const ep=document.getElementById('estudiosPage');
+  if(ep.classList.contains('open')){ep.classList.remove('open');document.body.style.overflow='';}
+  const el=document.getElementById(id);
+  if(el){const top=el.getBoundingClientRect().top+window.scrollY-72;window.scrollTo({top,behavior:'smooth'});}
+}
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
+const revObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(r=>revObs.observe(r));
+
+// ══ TABS ══
+function showTab(id,el){
+  document.querySelectorAll('.bo-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.bo-nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');el.classList.add('active');
+  if(id==='dashboard')renderDashboard();
+  if(id==='fotos')renderPhotoGrid();
+  if(id==='estudios-bo')renderEstudiosBO();
+  if(id==='programa-bo')renderProgramaBO();
+  if(id==='mensajes')renderMensajes();
+}
+
+// ══ PÁGINA ESTUDIOS ══
+function openEstudiosPage(){document.getElementById('estudiosPage').classList.add('open');document.body.style.overflow='hidden';renderEPGrid(currentEPFilter);}
+function closeEstudiosPage(){document.getElementById('estudiosPage').classList.remove('open');document.body.style.overflow='';}
+function renderEPGrid(filter){
+  currentEPFilter=filter;
+  const g=document.getElementById('epGrid');g.innerHTML='';
+  const list=state.estudios.filter(e=>filter==='all'||e.tipo===filter);
+  if(!list.length){g.innerHTML='<div class="ep-empty">No hay publicaciones en esta categoría aún.</div>';return;}
+  list.forEach((e,i)=>{
+    const div=document.createElement('div');div.className='ep-card';
+    div.innerHTML=`<div class="ep-card-header"><div class="ep-card-num">${String(i+1).padStart(2,'0')} — ${epTipoLabels[e.tipo]||'Estudio'}</div><div class="ep-card-title">${e.title}</div><div class="ep-card-pasaje">${e.pasaje}</div></div><div class="ep-card-body"><div class="ep-card-desc">${e.desc}</div><div class="ep-card-footer"><span class="ep-card-read">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span><span class="ep-card-tipo">${epTipoLabels[e.tipo]||'Estudio'}</span></div></div>`;
+    div.addEventListener('click',()=>openModal(e));
+    g.appendChild(div);
+  });
+}
+function filterEP(f,btn){document.querySelectorAll('.ep-filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');renderEPGrid(f);}
+function openModal(e){
+  document.getElementById('mLabel').textContent=(epTipoLabels[e.tipo]||'Estudio')+' — Iglesia de Cristo Hunter';
+  document.getElementById('mTitle').textContent=e.title;
+  document.getElementById('mPasaje').textContent=e.pasaje;
+  document.getElementById('mBody').innerHTML=e.contenido||`<p>${e.desc}</p>`;
+  document.getElementById('epModalBg').classList.add('open');
+}
+function closeModalBg(ev){if(ev.target===document.getElementById('epModalBg'))closeModalDirect();}
+function closeModalDirect(){document.getElementById('epModalBg').classList.remove('open');}
+
+// ══ RENDER SITIO ══
+function renderPrograma(filter){
+  const tb=document.getElementById('programaBody');tb.innerHTML='';
+  state.programa.forEach(ev=>{
+    const show=filter==='all'||ev.tipo===filter;
+    const tr=document.createElement('tr');tr.className='programa-row'+(show?'':' hidden');tr.dataset.tipo=ev.tipo;
+    tr.innerHTML=`<td><strong>${ev.fecha}</strong></td><td>${ev.actividad}</td><td><span class="evento-tipo tipo-${ev.tipo}">${tipoLabels[ev.tipo]}</span></td><td style="color:var(--g4);font-size:.82rem">${ev.nota}</td>`;
+    tb.appendChild(tr);
+  });
+}
+function filterPrograma(tipo,btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+  document.querySelectorAll('.programa-row').forEach(r=>r.classList.toggle('hidden',tipo!=='all'&&r.dataset.tipo!==tipo));
+}
+function renderEstudiosCount(){
+  const el=document.getElementById('estudiosCount');if(el)el.textContent=state.estudios.length+' publicaciones disponibles';
+}
+function renderGaleria(){
+  const g=document.getElementById('galeriaGrid');g.innerHTML='';
+  const labels=['Principal','Culto','Estudio','Comunión','Eventos'];
+  state.fotos.forEach((foto,i)=>{
+    const div=document.createElement('div');div.className='galeria-item';
+    if(i===0){div.style.gridColumn='span 2';div.style.gridRow='span 2';}
+    if(foto){
+      div.innerHTML=`<img src="${foto}" alt="Foto ${i+1}"><div class="galeria-overlay"></div>`;
+      div.style.cursor='zoom-in';
+      div.addEventListener('click',()=>lbOpen(i));
+    } else {
+      div.innerHTML=`<div class="galeria-placeholder"><svg width="${i===0?40:28}" height="${i===0?40:28}" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21,15 16,10 5,21"/></svg><span>${labels[i]}</span></div><div class="galeria-overlay"></div>`;
+    }
+    g.appendChild(div);
+  });
+}
+
+// ══ LIGHTBOX ══
+let lbIndex = 0;
+function lbPhotos(){ return state.fotos.map((f,i)=>f?{src:f,idx:i}:null).filter(Boolean); }
+function lbOpen(slotIdx){
+  const photos=lbPhotos(); if(!photos.length) return;
+  const pos=photos.findIndex(p=>p.idx===slotIdx);
+  lbIndex=pos>=0?pos:0;
+  lbShow();
+  document.getElementById('lbBg').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function lbShow(){
+  const photos=lbPhotos();
+  if(!photos.length) return;
+  lbIndex=((lbIndex%photos.length)+photos.length)%photos.length;
+  document.getElementById('lbImg').src=photos[lbIndex].src;
+  document.getElementById('lbCounter').textContent=(lbIndex+1)+' / '+photos.length;
+  // Hide arrows if only one photo
+  document.querySelector('.lb-arrow-left').style.display=photos.length>1?'flex':'none';
+  document.querySelector('.lb-arrow-right').style.display=photos.length>1?'flex':'none';
+}
+function lbClose(){
+  document.getElementById('lbBg').classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbNext(){lbIndex++;lbShow();}
+function lbPrev(){lbIndex--;lbShow();}
+function lbClickBg(ev){if(ev.target===document.getElementById('lbBg'))lbClose();}
+// Keyboard navigation
+document.addEventListener('keydown',function(e){
+  const lb=document.getElementById('lbBg');
+  if(!lb.classList.contains('open'))return;
+  if(e.key==='ArrowRight')lbNext();
+  else if(e.key==='ArrowLeft')lbPrev();
+  else if(e.key==='Escape')lbClose();
+});
+function renderProgramaTitulo(){
+  const el=document.getElementById('progTituloSite');if(el)el.innerHTML=state.programaTitulo;
+}
+
+// ══ FOTOS BACK OFFICE ══
+function renderPhotoGrid(){
+  const g=document.getElementById('boPhotoGrid');g.innerHTML='';
+  const labels=['Principal','Culto','Estudio','Comunión','Eventos'];
+  state.fotos.forEach((foto,i)=>{
+    const div=document.createElement('div');div.className='bo-photo-slot';
+    if(foto){
+      const img=document.createElement('img');img.src=foto;img.alt='';
+      div.appendChild(img);
+      const hover=document.createElement('div');hover.className='slot-hover';
+      const bRep=document.createElement('button');bRep.className='slot-btn slot-btn-rep';bRep.textContent='Reemplazar';
+      bRep.addEventListener('click',function(ev){ev.stopPropagation();replacePhoto(i);});
+      const bDel=document.createElement('button');bDel.className='slot-btn slot-btn-del';bDel.textContent='Eliminar';
+      bDel.addEventListener('click',function(ev){
+        ev.stopPropagation();
+        confirm2(
+          '¿Eliminar esta foto?',
+          `Foto: "${labels[i]}". Esta acción no se puede deshacer.`,
+          function(){state.fotos[i]=null;renderPhotoGrid();renderGaleria();renderDashboard();}
+        );
+      });
+      hover.appendChild(bRep);hover.appendChild(bDel);div.appendChild(hover);
+    } else {
+      div.classList.add('empty');
+      div.innerHTML=`<div class="slot-empty-inner"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg><span class="slot-label">${labels[i]}</span></div>`;
+      div.addEventListener('click',function(){currentPhotoSlot=i;document.getElementById('photoFileInput').click();});
+    }
+    g.appendChild(div);
+  });
+}
+function replacePhoto(i){currentPhotoSlot=i;document.getElementById('photoFileInput').click();}
+function handlePhotoUpload(e){
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{state.fotos[currentPhotoSlot]=ev.target.result;renderPhotoGrid();renderGaleria();renderDashboard();};
+  reader.readAsDataURL(file);e.target.value='';
+}
+
+// ══ CONTACTO ══
+function enviarMensaje(){
+  const n=document.getElementById('cNombre').value.trim();
+  const c=document.getElementById('cCorreo').value.trim();
+  const a=document.getElementById('cAsunto').value.trim();
+  const m=document.getElementById('cMensaje').value.trim();
+  if(!n||!m){alert('Por favor completa nombre y mensaje.');return;}
+  state.mensajes.unshift({id:state.nextId++,nombre:n,correo:c,asunto:a||'Sin asunto',mensaje:m,fecha:new Date().toLocaleDateString('es-PE',{day:'2-digit',month:'short',year:'numeric'}),leido:false});
+  ['cNombre','cCorreo','cAsunto','cMensaje'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('formSuccess').style.display='block';
+  setTimeout(()=>document.getElementById('formSuccess').style.display='none',5000);
+  updateMsgBadge();
+}
+function updateMsgBadge(){
+  const u=state.mensajes.filter(m=>!m.leido).length;
+  document.getElementById('msgBadge').textContent=u>0?`(${u})`:'';
+}
+
+// ══ BO RENDER ══
+function renderAll(){renderPrograma('all');renderGaleria();renderEstudiosCount();renderProgramaTitulo();updateMsgBadge();renderDashboard();}
+function renderDashboard(){
+  const u=state.mensajes.filter(m=>!m.leido).length;
+  document.getElementById('statsGrid').innerHTML=`
+    <div class="stat-box"><div class="stat-num">${state.programa.length}</div><div class="stat-lbl">Actividades</div></div>
+    <div class="stat-box"><div class="stat-num">${state.estudios.length}</div><div class="stat-lbl">Estudios</div></div>
+    <div class="stat-box"><div class="stat-num">${state.fotos.filter(f=>f).length}</div><div class="stat-lbl">Fotos</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:${u>0?'#4a9a6a':'var(--white)'}">${u}</div><div class="stat-lbl">Msgs nuevos</div></div>`;
+  const tb=document.querySelector('#dashMsgTable tbody');tb.innerHTML='';
+  if(!state.mensajes.length){tb.innerHTML='<tr><td colspan="4" style="color:var(--g4);text-align:center;padding:1.5rem">Sin mensajes aún.</td></tr>';return;}
+  state.mensajes.slice(0,5).forEach(m=>{
+    tb.innerHTML+=`<tr><td>${m.nombre}</td><td style="max-width:150px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--g4);font-size:.82rem">${m.asunto}</td><td style="font-size:.78rem;color:var(--g4)">${m.fecha}</td><td><span class="bo-badge ${m.leido?'bo-badge-read':'bo-badge-new'}">${m.leido?'Leído':'Nuevo'}</span></td></tr>`;
+  });
+}
+
+// ══ ESTUDIOS BO ══
+function renderEstudiosBO(){
+  const tb=document.getElementById('estudiosBoList');tb.innerHTML='';
+  const cnt=document.getElementById('estudiosCountBO');if(cnt)cnt.textContent=state.estudios.length;
+  if(!state.estudios.length){tb.innerHTML='<tr><td colspan="5" style="color:var(--g4);text-align:center;padding:1.5rem">No hay publicaciones.</td></tr>';return;}
+  state.estudios.forEach((e,i)=>{
+    const tr=document.createElement('tr');
+    // Cells
+    const tdNum=document.createElement('td');tdNum.style.cssText='color:var(--g4);font-size:.8rem';tdNum.textContent=String(i+1).padStart(2,'0');
+    const tdTitle=document.createElement('td');tdTitle.style.maxWidth='160px';tdTitle.textContent=e.title;
+    const tdPasaje=document.createElement('td');tdPasaje.style.cssText='font-size:.8rem;color:var(--g4)';tdPasaje.textContent=e.pasaje;
+    const tdTipo=document.createElement('td');tdTipo.style.cssText='font-size:.78rem;color:var(--g4)';tdTipo.textContent=epTipoLabels[e.tipo]||'—';
+    const tdActions=document.createElement('td');tdActions.style.cssText='text-align:center;white-space:nowrap';
+    // Edit button
+    const bEdit=document.createElement('button');bEdit.className='bo-btn-edit';bEdit.textContent='Editar';
+    bEdit.addEventListener('click',function(){openEditModal(e.id);});
+    // Delete button
+    const bDel=document.createElement('button');bDel.className='bo-btn-danger';bDel.textContent='Eliminar';
+    bDel.addEventListener('click',function(){
+      confirm2(
+        '¿Eliminar esta publicación?',
+        `"${e.title}" — Esta acción no se puede deshacer.`,
+        function(){
+          state.estudios=state.estudios.filter(x=>x.id!==e.id);
+          renderEstudiosBO();renderEstudiosCount();renderDashboard();
+          if(document.getElementById('estudiosPage').classList.contains('open'))renderEPGrid(currentEPFilter);
+        }
+      );
+    });
+    tdActions.appendChild(bEdit);tdActions.appendChild(bDel);
+    tr.append(tdNum,tdTitle,tdPasaje,tdTipo,tdActions);
+    tb.appendChild(tr);
+  });
+}
+
+function addEstudio(){
+  const t=document.getElementById('esTitle').value.trim();
+  const p=document.getElementById('esPasaje').value.trim();
+  const ti=document.getElementById('esTipo').value;
+  const v=document.getElementById('esVerso').value.trim();
+  const d=document.getElementById('esDesc').value.trim();
+  const c=document.getElementById('esContenido').value.trim();
+  if(!t||!p){alert('Completa al menos título y pasaje.');return;}
+  const contenidoHtml=c?'<p>'+c.replace(/\n\n+/g,'</p><p>').replace(/\n/g,'<br>')+'</p>':`<p>${d||t}</p>`;
+  state.estudios.push({id:state.nextId++,title:t,pasaje:p,tipo:ti,verso:v,desc:d||t,contenido:contenidoHtml});
+  ['esTitle','esPasaje','esVerso','esDesc','esContenido'].forEach(id=>document.getElementById(id).value='');
+  renderEstudiosBO();renderEstudiosCount();renderDashboard();flashSuccess('esSuccess');
+  if(document.getElementById('estudiosPage').classList.contains('open'))renderEPGrid(currentEPFilter);
+}
+
+// ══ PROGRAMA BO ══
+function guardarTituloPrograma(){
+  const raw=document.getElementById('progTituloInput').value.trim();
+  if(!raw){alert('Escribe un título.');return;}
+  state.programaTitulo=raw;renderProgramaTitulo();flashSuccess('tituloSuccess');
+}
+function renderProgramaBO(){
+  const tb=document.getElementById('programaBoList');tb.innerHTML='';
+  const cnt=document.getElementById('progCount');if(cnt)cnt.textContent=state.programa.length;
+  const inp=document.getElementById('progTituloInput');
+  if(inp&&!inp.value)inp.value=state.programaTitulo.replace(/<[^>]+>/g,'');
+  if(!state.programa.length){tb.innerHTML='<tr><td colspan="5" style="color:var(--g4);text-align:center;padding:1.5rem">No hay actividades.</td></tr>';return;}
+  state.programa.forEach(ev=>{
+    const tr=document.createElement('tr');
+    const tdF=document.createElement('td');tdF.style.cssText='font-size:.85rem;white-space:nowrap';tdF.textContent=ev.fecha;
+    const tdA=document.createElement('td');tdA.textContent=ev.actividad;
+    const tdT=document.createElement('td');
+    const sp=document.createElement('span');sp.className='evento-tipo tipo-'+ev.tipo;sp.style.fontSize='.6rem';sp.textContent=tipoLabels[ev.tipo];
+    tdT.appendChild(sp);
+    const tdN=document.createElement('td');tdN.style.cssText='font-size:.78rem;color:var(--g4)';tdN.textContent=ev.nota;
+    const tdAcc=document.createElement('td');tdAcc.style.textAlign='center';
+    const bDel=document.createElement('button');bDel.className='bo-btn-danger';bDel.textContent='Eliminar';
+    bDel.addEventListener('click',function(){
+      confirm2(
+        '¿Eliminar esta actividad?',
+        `"${ev.actividad}" (${ev.fecha}). Esta acción no se puede deshacer.`,
+        function(){
+          state.programa=state.programa.filter(x=>x.id!==ev.id);
+          renderProgramaBO();renderPrograma('all');renderDashboard();
+        }
+      );
+    });
+    tdAcc.appendChild(bDel);
+    tr.append(tdF,tdA,tdT,tdN,tdAcc);
+    tb.appendChild(tr);
+  });
+}
+// Month order helper for sorting
+const MESES={'enero':1,'febrero':2,'marzo':3,'abril':4,'mayo':5,'junio':6,'julio':7,'agosto':8,'septiembre':9,'octubre':10,'noviembre':11,'diciembre':12};
+function parseFechaOrdinal(fechaStr){
+  // Accepts "15 Agosto", "4 Enero", "Primer Domingo" etc.
+  const parts=fechaStr.toLowerCase().split(/\s+/);
+  let mes=0,dia=0;
+  for(const p of parts){
+    if(MESES[p]){mes=MESES[p];}
+    const n=parseInt(p);if(!isNaN(n)&&n>=1&&n<=31)dia=n;
+  }
+  return mes*100+dia; // e.g. 802 = August 2nd
+}
+function sortPrograma(){
+  state.programa.sort((a,b)=>parseFechaOrdinal(a.fecha)-parseFechaOrdinal(b.fecha));
+}
+function addActividad(){
+  const f=document.getElementById('prFecha').value.trim();
+  const a=document.getElementById('prActividad').value.trim();
+  const t=document.getElementById('prTipo').value;
+  const n=document.getElementById('prNota').value.trim();
+  if(!f||!a){alert('Completa fecha y actividad.');return;}
+  state.programa.push({id:state.nextId++,fecha:f,actividad:a,tipo:t,nota:n});
+  sortPrograma();
+  ['prFecha','prActividad','prNota'].forEach(id=>document.getElementById(id).value='');
+  renderProgramaBO();renderPrograma('all');
+  document.querySelectorAll('.filter-btn').forEach((b,i)=>b.classList.toggle('active',i===0));
+  renderDashboard();flashSuccess('progSuccess');
+}
+
+// ══ MENSAJES ══
+function renderMensajes(){
+  const tb=document.getElementById('mensajesList');tb.innerHTML='';
+  if(!state.mensajes.length){tb.innerHTML='<tr><td colspan="5" style="color:var(--g4);text-align:center;padding:2rem">No hay mensajes.</td></tr>';return;}
+  state.mensajes.forEach(m=>{
+    const tr=document.createElement('tr');tr.style.cursor='pointer';
+    const tdN=document.createElement('td');const st=document.createElement('strong');st.style.color=m.leido?'var(--g4)':'var(--white)';st.textContent=m.nombre;tdN.appendChild(st);
+    const tdC=document.createElement('td');tdC.style.cssText='font-size:.8rem;color:var(--g4)';tdC.textContent=m.correo||'—';
+    const tdA=document.createElement('td');tdA.textContent=m.asunto;
+    const tdF=document.createElement('td');tdF.style.cssText='font-size:.78rem;color:var(--g4)';tdF.textContent=m.fecha;
+    const tdS=document.createElement('td');const badge=document.createElement('span');badge.className='bo-badge '+(m.leido?'bo-badge-read':'bo-badge-new');badge.textContent=m.leido?'Leído':'Nuevo';tdS.appendChild(badge);
+    tr.append(tdN,tdC,tdA,tdF,tdS);
+    tr.addEventListener('click',function(){
+      const ex=document.getElementById('detail-'+m.id);
+      if(ex){ex.remove();return;}
+      m.leido=true;updateMsgBadge();renderMensajes();renderDashboard();
+      const det=document.createElement('tr');det.id='detail-'+m.id;
+      const detTd=document.createElement('td');detTd.colSpan=5;
+      const div=document.createElement('div');div.className='msg-detail';
+      div.innerHTML=`<strong>De:</strong> ${m.nombre}${m.correo?' &lt;'+m.correo+'&gt;':''}<br><strong>Asunto:</strong> ${m.asunto}<br><strong>Fecha:</strong> ${m.fecha}<br><br>${m.mensaje.replace(/\n/g,'<br>')}<br><br>`;
+      const bDel=document.createElement('button');bDel.className='bo-btn-danger';bDel.textContent='Eliminar mensaje';
+      bDel.addEventListener('click',function(){
+        confirm2('¿Eliminar este mensaje?',`Mensaje de "${m.nombre}". Esta acción no se puede deshacer.`,function(){
+          state.mensajes=state.mensajes.filter(x=>x.id!==m.id);
+          renderMensajes();renderDashboard();updateMsgBadge();
+        });
+      });
+      div.appendChild(bDel);detTd.appendChild(div);det.appendChild(detTd);
+      tr.parentNode.insertBefore(det,tr.nextSibling);
+    });
+    tb.appendChild(tr);
+  });
+}
+
+// INIT
+renderPrograma('all');renderGaleria();renderEstudiosCount();renderProgramaTitulo();
+</script>
+</body>
+</html>
